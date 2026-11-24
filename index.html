@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#190d13">
+<title>Maryam Jamal | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #130b10;
+    --card: #20131b;
+    --wine: #8e3154;
+    --pink: #e9a4bd;
+    --white: #fff4f7;
+    --muted: #b9a7af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: rgba(19,11,16,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: var(--pink);
+}
+
+nav {
+    display: flex;
+    gap: 27px;
+}
+
+nav a {
+    font-size: 13px;
+    color: var(--muted);
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--pink);
+}
+
+.menu {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+section {
+    padding: 110px 9%;
+}
+
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 55px;
+    padding-top: 140px;
+}
+
+.tag {
+    color: var(--pink);
+    letter-spacing: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--pink);
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 490px;
+    font-size: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 27px;
+    background: var(--wine);
+    border: 1px solid var(--wine);
+    color: white;
+    font-size: 13px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: transparent;
+    border-color: var(--pink);
+    color: var(--pink);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: #ffffff40;
+}
+
+.hero-image {
+    position: relative;
+    max-width: 410px;
+    margin: auto;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 510px;
+    object-fit: cover;
+    border-radius: 180px 180px 12px 12px;
+    filter: saturate(.9);
+    border: 1px solid #e9a4bd55;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 25px;
+    left: -35px;
+    background: var(--card);
+    padding: 18px 24px;
+    border: 1px solid #e9a4bd55;
+    font-size: 12px;
+    color: var(--pink);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 5vw, 53px);
+    margin-bottom: 18px;
+}
+
+.section-title span {
+    color: var(--pink);
+}
+
+.section-intro {
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-text p {
+    color: var(--muted);
+    line-height: 2;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.info div {
+    border-left: 2px solid var(--wine);
+    padding-left: 12px;
+}
+
+.info strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.info span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--card);
+    padding: 30px;
+    border: 1px solid #ffffff12;
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--pink);
+}
+
+.skill-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pink);
+    font-size: 21px;
+    margin-bottom: 13px;
+}
+
+.skill-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.education-box {
+    border-left: 2px solid var(--wine);
+    padding: 5px 0 30px 30px;
+    position: relative;
+}
+
+.education-box::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--pink);
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    border-radius: 50%;
+}
+
+.education-box h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 8px;
+}
+
+.education-box p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+}
+
+.project {
+    background: var(--card);
+    overflow: hidden;
+    border: 1px solid #ffffff12;
+    transition: .3s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+}
+
+.project img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: .5s;
+}
+
+.project:hover img {
+    transform: scale(1.04);
+}
+
+.project-content {
+    padding: 24px;
+}
+
+.project-content h3 {
+    color: var(--pink);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.contact {
+    text-align: center;
+    background: linear-gradient(135deg,#301322,#160d13);
+}
+
+.contact p {
+    color: var(--muted);
+    margin: 20px auto;
+    max-width: 500px;
+    line-height: 1.8;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid #ffffff12;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .8s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:850px) {
+    header {
+        padding: 18px 6%;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #20131b;
+        flex-direction: column;
+        padding: 25px;
+        text-align: center;
+        gap: 22px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    section {
+        padding: 90px 7%;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 45px;
+    }
+
+    .hero p {
+        margin: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        max-width: 330px;
+    }
+
+    .hero-image img {
+        height: 420px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px) {
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    .image-caption {
+        left: -10px;
+    }
+}
+.certificates {
+    padding: 100px 8%;
+    background: #16090d;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading .subtitle {
+    color: #c18a9d;
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.section-heading h2 {
+    color: #f5e6eb;
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.section-heading p {
+    color: #bbaab0;
+    font-size: 15px;
+}
+
+.certificate-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.certificate-card {
+    background: #241319;
+    border: 1px solid #49303a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    border-color: #c18a9d;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.certificate-image {
+    width: 100%;
+    height: 190px;
+    background: #10070a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.certificate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.4s;
+}
+
+.certificate-card:hover .certificate-image img {
+    transform: scale(1.05);
+}
+
+.certificate-info {
+    padding: 22px;
+}
+
+.certificate-info h3 {
+    color: #e7b8c8;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.certificate-info p {
+    color: #bcaeb3;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Responsive Design */
+
+@media (max-width: 900px) {
+    .certificate-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .certificate-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#home" class="logo">Maryam.</a>
+
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content reveal">
+        <div class="tag">Welcome to my portfolio</div>
+
+        <h1>Hello, I'm<br><span>Maryam Jamal.</span></h1>
+
+        <p>
+            A creative and passionate individual who loves learning,
+            exploring new ideas, and turning imagination into meaningful work.
+            Welcome to my personal space.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn">Explore My Work</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+    </div>
+
+    <div class="hero-image reveal">
+        <img src="Maryam.img.jpg"alt="profile">
+        <div class="image-caption">Creative Mind · Endless Possibilities</div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-grid">
+        
+        <div class="about-image reveal">
+            <img src="maryam1.jpg" alt="Maryam Jamal">
+        </div>
+
+        <div class="about-text reveal">
+            <div class="tag">Get to know me</div>
+            <h2 class="section-title">About <span>Me</span></h2>
+
+            <p>
+                Hello! My name is Maryam Jamal.
+                I am dedicated student with strong interest in education, personal developmentand technology.
+                my future academic goul is to study computer science. I belive that education determination and continuous 
+                learning are essential for personal growth and succcess.
+                
+            </p>
+
+            <div class="info">
+                <div>
+                    <strong>Name</strong>
+                    <span>Maryam Jamal</span>
+                </div>
+                <div>
+                    <strong>Interests</strong>
+                    <span>Learning & Creativity</span>
+                </div>
+                <div>
+                    <strong>Focus</strong>
+                    <span>Personal Development</span>
+                </div>
+                <div>
+                    <strong>Goal</strong>
+                    <span>Building My Future</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="education">
+    <div class="tag">My academic journey</div>
+    <h2 class="section-title">Education & <span>Journey</span></h2>
+    <p class="section-intro">
+        Every step in education is an opportunityi to learn,
+        grow, and discover something new.I belive that educationis the foundation of
+        personal growth and succcess.I am continuously learning, developing skills,
+        and preparing for a brighter future.
+    </p>
+
+    <div class="education-box reveal">
+        <h3>My Educational Background</h3>
+        <p>I am currently studing at Samanians High School, where I continue to 
+            build a strong academic foundation and expand my knowledge in differnt 
+            subjects. During my studies, I focus on my academic performance,developing
+            independent learning habits, and strengthening my Communication and Problem solving abilities.
+            <br><br>
+            Beynd classroom learning I am interested in personal development, leadership,
+            technology,and language learning. I enjoy discovering new ideas, taking part in Educational
+            activities and challenge myself to learn beyond the school curriculm.
+            
+        </p>
+    </div>
+
+   
+</section>
+<section id="certificates" class="certificates">
+    <div class="section-heading">
+        <span class="subtitle">MY ACHIEVEMENTS</span>
+        <h2>Certificates & Awards</h2>
+        <p>My learning journey, achievements, and professional development.</p>
+    </div>
+
+    <div class="certificate-container">
+
+        <div class="certificate-card">
+            <div class="certificate-image">
+                <img src="Advance English class.jpg"
+                     alt="Advanced English Certificate">
+            </div>
+            <div class="certificate-info">
+                <h3>Advanced English Class</h3>
+                <p>English language learning and communication skills.</p>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <div class="certificate-image">
+                <img src="Samanian school.jpg"
+                     alt="Samanian School Certificate">
+            </div>
+            <div class="certificate-info">
+                <h3>Samanian School</h3>
+                <p>Academic achievement and educational background.</p>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <div class="certificate-image">
+                <img src="ICDL.jpg"
+                     alt="ICDL Certificate">
+            </div>
+            <div class="certificate-info">
+                <h3>ICDL Certificate</h3>
+                <p>Computer skills and digital literacy.</p>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <div class="certificate-image">
+                <img src="Teacher Assistant.jpg"
+                     alt="Teacher Assistant Certificate">
+            </div>
+            <div class="certificate-info">
+                <h3>Teacher Assistant</h3>
+                <p>Teaching experience, communication, and leadership.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="skills">
+    <div class="tag">What I bring</div>
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <p class="section-intro">
+        Skills I have developed through learning, practice,
+        and personal experiences.
+    </p>
+
+    <div class="skills-grid">
+        <div class="skill-card reveal">
+            <h3>Communication</h3>
+            <p>Expressing ideas clearly and connecting with people.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Creativity</h3>
+            <p>Exploring new ideas and finding creative solutions.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Teamwork</h3>
+            <p>Working with others and sharing knowledge.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Problem Solving</h3>
+            <p>Thinking critically and approaching challenges.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Time Management</h3>
+            <p>Organizing tasks and managing responsibilities.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Self Learning</h3>
+            <p>Learning independently and developing new abilities.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="tag">Selected work</div>
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <p class="section-intro">
+        A collection of my work, ideas, and creative experiments.
+    </p>
+
+    <div class="projects-grid">
+        <div class="project reveal">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900" alt="Web development workspace">
+            <div class="project-content">
+                <h3>Creative Project</h3>
+                <p>Designing and developing a personal portfolio website using HTML, CSS and Java script. This project showcases my creativity, technical skills, and ability to turn ideas into attractive and user-friendly websites.</p>
+            </div>
+        </div>
+
+        <div class="project reveal">
+            <img src="afghanishop.jpg" alt="online business">
+            <div class="project-content">
+                <h3>Personal Work</h3>
+                <p>Leading a team of Afghan girls to establish and manage an online business focused on traditional Afghan clothing. The project aims to empower young women through teamwork, creativity, and entrepreneurship while designing, producing, and selling beautiful Afghan dresses online and promoting Afghanistan's rich cultural heritage.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="tag">Let's connect</div>
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+
+    <p>
+        Thank you for visiting my portfolio.
+        I would love to connect, share ideas, and explore new opportunities.
+    </p>
+
+    <div class="contact-links">
+        <a href="mailto:your-email@example.com" class="btn">Email Me</a>
+        <a href="https://www.linkedin.com/" target="_blank" class="btn btn-outline">LinkedIn</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    © 2026 Maryam Jamal. All Rights Reserved.
+    <br><br>
+    Designed with creativity and passion.
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("active");
+}
+
+document.querySelectorAll("#navbar a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navbar").classList.remove("active");
+    });
+});
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+// Certificate Image Lightbox
+
+const certificateImages = document.querySelectorAll(
+    ".certificate-image img"
+);
+
+certificateImages.forEach((image) => {
+    image.addEventListener("click", () => {
+        const lightbox = document.createElement("div");
+
+        lightbox.className = "certificate-lightbox";
+
+        lightbox.innerHTML = `
+            <span class="close-lightbox">&times;</span>
+            <img src="${image.src}" alt="${image.alt}">
+        `;
+
+        document.body.appendChild(lightbox);
+
+        lightbox.addEventListener("click", () => {
+            lightbox.remove();
+        });
+    });
+});
+
+</script>
+     <span class="close-lightbox">&times;</span>
+            <img src="${image.src}" alt="${image.alt}">
+        
+       
+
+</body>
+</html>
